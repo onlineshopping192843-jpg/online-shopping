@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fashion Store</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: white;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #6dd5ed;
+      color: black;
+      padding:100px;
+      text-align: center;
+      position: relative;
+    }
+    header a.button-link {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      background-color: green;
+      color: white;
+      padding: 10px 10px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    header a.button-link:hover {
+      background-color: red;
+    }
+    .container {
+      display: flex;
+ background-color: #6dd5ed;
+      flex-wrap: wrap;
+      padding:80px;
+      justify-content: space-around;
+    }
+  h1
+  {
+      text-align: center;
+    }
+    .card {
+      background: pink;
+      width: 180px;
+      margin: 15px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.3);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+    .card h3, .card p {
+      padding: 10px;
+      margin: 0;
+    }
+    .card button {
+      margin: 5px;
+      padding: 10px;
+      border: none;
+      background: green;
+      color: black;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .card button:hover {
+      background: yellow;
+    }
+ #cart, #wishlist, #payment-section {
+      margin: 20px;
+      padding: 10px;
+      background: pink;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+    h2 {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    @media (max-width: 600px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .card {
+        width:90%;
+      }
+    }
+  </style>
+</head>
+<body>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const userData = sessionStorage.getItem('loggedInUser');
+    if (userData) {
+      const user = JSON.parse(userData);
+      const welcomeMessage = document.createElement('p');
+      welcomeMessage.style.fontWeight = 'bold';
+      welcomeMessage.textContent = `Welcome, ${user.fullname} `;
+      document.body.prepend(welcomeMessage); // Shows welcome message at top of the page
+    } else {
+      alert('No user logged in.');
+      // Optional: redirect back to login page if no user found
+      // window.location.href = 'login.html';
+    }
+  });
+
+ 
+</script>
+
+  <header>
+    <h1>Fashion Trendz</h1>
+    <p>Your Online Fashion Destination</p>
+    <a href="login.html" class="button-link">Back to Login</a>
+<h3>🛍️ Click, style, slay—your dream wardrobe is just a scroll away. 💃✨</h3>
+     <img src="https://img.freepik.com/premium-vector/online-shopping-backgroung_488995-5.jpg?w=826" alt="img "width = "650" height = 470>
+  <div class="center-text">
+   <h1> STYLE FOR WOMENS</h1>
+     <img src="https://labeldki.com/cdn/shop/files/Banner_1_m.jpg?v=1728367294&width=2000" alt="Image" width = "600" height = 700>
+ <h4>👗 Tradition meets elegance—shop women’s ethnic wear online for timeless grace. ✨</h4>
+   </div>
+  </header>
+
+  <div class="container">
+   <div class="card">
+      <h3>PATTU SAREE</h3>
+      <p>Price: ₹5999</p>
+          <img src="https://i.pinimg.com/originals/d2/2c/14/d22c143cc481fe22f84a34ebbeb1c46f.jpg" alt="img ">
+      <button onclick="addToCart('Pattu Saree')">Add to Cart</button>
+      <button onclick="addToWishlist('Pattu Saree')">Add to Wishlist</button>
+      <button onclick="bookNow('Pattu Saree')">Book Now</button>
+    </div>
+
+    <div class="card">
+      <h3>SILK SAREE</h3>
+      <p>Price: ₹799</p>
+       <img src="https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_100,w_1080/v1/assets/images/21599816/2023/1/18/b8f060d6-7780-489a-b3d8-fea32d51b3251674046374920TikhiImliPinkGreenFloralSaree1.jpg"alt="img ">
+      <button onclick="addToCart('Silk Saree')">Add to Cart</button>
+      <button onclick="addToWishlist('Silk Saree')">Add to Wishlist</button>
+       <button onclick="bookNow('Half Saree')">Book Now</button>
+    </div>
+
+    <div class="card">
+      <h3>PAPER SAREE</h3>
+      <p>Price: ₹999</p>
+      <img src="https://ilovesarees.com/cdn/shop/files/OishiCottonTissueSaree00001.webp?v=1717411894" alt="Paper saree">
+      <button onclick="addToCart('Paper Saree')">Add to Cart</button>
+      <button onclick="addToWishlist('Paper Saree')">Add to Wishlist</button>
+      <button onclick="bookNow('Paper Saree')">Book Now</button>
+    </div>
+
+<div class="card">
+      <h3>PARTY WEAR SAREE</h3>
+      <p>Price: ₹1999</p>
+      <img src="https://th.bing.com/th/id/R.48c502406db76fad13d8c428e73fc079?rik=ecFQUL7HLyAYdg&riu=http%3a%2f%2fsuvidhafashion.com%2fcdn%2fshop%2ffiles%2fS-9.jpg%3fv%3d1703157787&ehk=xZb%2ft13JNfwPIuMXiD4MIZ3CI91vfjo9YjJETi2Nt0Y%3d&risl=&pid=ImgRaw&r=0" alt="Party wear saree">
+      <button onclick="addToCart('Party wear Saree')">Add to Cart</button>
+      <button onclick="addToWishlist('Party wear Saree')">Add to Wishlist</button>
+      <button onclick="bookNow('Party wear Saree')">Book Now</button>
+    </div>
+
+    <div class="card">
+     <h3> LEHANGAS</h3>
+      <p>Price: ₹3999</p>
+      <img src="https://tse2.mm.bing.net/th/id/OIP.xMwYXaG7jOh4Jrtxbm4W-gHaKL?r=0&w=1000&h=1375&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Lehangas">
+ <label for="size-lehangas">Choose Size:</label>
+  <select id="size-lehangas" name="size-lehangas">
+   option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Lehangas')">Add to Cart</button>
+      <button onclick="addToWishlist('Lehangas')">Add to Wishlist</button>
+      <button onclick="bookNow('Lehangas')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>LEHANGAS</h3>
+      <p>Price: ₹2599</p>
+      <img src="https://i.pinimg.com/originals/77/58/11/775811b4fb2eb0f40ac7c771bbc831b6.jpg" alt="Lehangas">
+ <label for="size-lehangas">Choose Size:</label>
+  <select id="size-lehangas" name="size-lehangas">
+   option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Lehangas')">Add to Cart</button>
+      <button onclick="addToWishlist('Lehangas')">Add to Wishlist</button>
+      <button onclick="bookNow('Lehangas')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>LEHANGAS</h3>
+      <p>Price: ₹3299</p>
+      <img src="https://tse2.mm.bing.net/th/id/OIP.JnaEFDceHjUwFHEWTDExswHaKL?r=0&w=1000&h=1375&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Lehangas">
+ <label for="size-lehangas">Choose Size:</label>
+  <select id="size-lehangas" name="size-lehangas">
+   option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Lehangas')">Add to Cart</button>
+      <button onclick="addToWishlist('Lehangas')">Add to Wishlist</button>
+      <button onclick="bookNow('Lehangas')">Book Now</button>
+    </div>
+
+  <div class="card">
+     <h3> LEHANGAS</h3>
+      <p>Price: ₹2980</p>
+     <img src="https://www.nameerabyfarooq.com/cdn/shop/products/Pakistani_Bridal_Lehnga_Choli_in_Gold_Color_2_1800x1800.jpg?v=1581167818" alt="Lehangas">
+ <label for="size-lehangas">Choose Size:</label>
+  <select id="size-lehangas" name="size-lehangas">
+   option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Lehangas')">Add to Cart</button>
+      <button onclick="addToWishlist('Lehangas')">Add to Wishlist</button>
+      <button onclick="bookNow('Lehangas')">Book Now</button>
+    </div>
+
+    <div class="card">
+      <h3>HALF SAREE</h3>
+      <p>Price: ₹2699</p>
+      <img src="https://www.bangaloredesignerboutique.com/wp-content/uploads/2021/10/4a6c842384b1b5120c7d581f9a948de2.jpg" alt="Half saree">
+ <label for="size-half saree">Choose Size:</label>
+  <select id="size-half saree" name="size-half saree">
+    option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Half Saree')">Add to Cart</button>
+      <button onclick="addToWishlist('Half Saree')">Add to Wishlist</button>
+      <button onclick="bookNow('Half Saree')">Book Now</button>
+    </div>
+
+<div class="card">
+      <h3>HALF SAREE</h3>
+      <p>Price: ₹2399</p>
+      <img src="https://i.pinimg.com/736x/6a/a5/83/6aa583c2cec51614a5d0a0d2e2a800c3.jpg" alt="Half saree">
+ <label for="size-half saree">Choose Size:</label>
+  <select id="size-half saree" name="size-half saree">
+    option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Half Saree')">Add to Cart</button>
+      <button onclick="addToWishlist('Half Saree')">Add to Wishlist</button>
+      <button onclick="bookNow('Half Saree')">Book Now</button>
+    </div>
+
+<div class="card">
+      <h3>HALF SAREE</h3>
+      <p>Price: ₹2800</p>
+      <img src="https://assets0.mirraw.com/images/11271106/BK383N_2_zoom.jpg?1677660896" alt="Half saree">
+ <label for="size-half saree">Choose Size:</label>
+  <select id="size-half saree" name="size-half saree">
+    option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Half Saree')">Add to Cart</button>
+      <button onclick="addToWishlist('Half Saree')">Add to Wishlist</button>
+      <button onclick="bookNow('Half Saree')">Book Now</button>
+    </div>
+
+<div class="card">
+      <h3>HALF SAREE</h3>
+      <p>Price: ₹2999</p>
+      <img src="https://th.bing.com/th/id/R.a52a0ab56bf9a2d83cf090e382129cee?rik=qVkE3IcNQHi85g&riu=http%3a%2f%2frukmini1.flixcart.com%2fimage%2f300%2f300%2fxif0q%2flehenga-choli%2fr%2fw%2f2%2ffree-half-sleeve-ringrod-yellow-lehenga-set-vasoyaoverseas-original-imagtazzqh7wzfdq.jpeg&ehk=tGezvw%2fYuH4G%2blbyg0uC8FgHmOoKkPaxL9pnZvXm1Ko%3d&risl=&pid=ImgRaw&r=0" alt="Half saree">
+ <label for="size-half saree">Choose Size:</label>
+  <select id="size-half saree" name="size-half saree">
+    option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Half Saree')">Add to Cart</button>
+      <button onclick="addToWishlist('Half Saree')">Add to Wishlist</button>
+      <button onclick="bookNow('Half Saree')">Book Now</button>
+    </div>
+<div>
+  <img src="https://marketplace.canva.com/EAFVHstxnwk/1/0/800w/canva-beige-aesthetic-exclusive-fashion-wear-collection-clothing-banner-yv-HRWs1aMc.jpg" alt="Image" width = "700" height = 480>
+<h4>✨ Shop women’s western wear online for bold, chic, everyday style. 👚</h4>
+</div>
+ <div class="card">
+      <h3>WESTERN WEAR</h3>
+      <p>Price: ₹450</p>
+       <img src="https://i.pinimg.com/originals/da/8d/c8/da8dc8a1e754522fb77d52f72e61d80e.jpg" alt="Western">
+     <label for="size-dress">Choose Size:</label>
+  <select id="size-dress" name="size-dress">
+   option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Western Wear')">Add to Cart</button>
+      <button onclick="addToWishlist('Western Wear')">Add to Wishlist</button>
+      <button onclick="bookNow('Western Wear')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>WESTERN WEAR</h3>
+      <p>Price: ₹599</p>
+       <img src="https://i.pinimg.com/736x/e2/9b/6a/e29b6aecd1e31dd4e0aa4bc5fea045bc.jpg" alt="Western">
+     <label for="size-dress">Choose Size:</label>
+  <select id="size-dress" name="size-dress">
+   option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Western Wear')">Add to Cart</button>
+      <button onclick="addToWishlist('Western Wear')">Add to Wishlist</button>
+      <button onclick="bookNow('Western Wear')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>WESTERN WEAR</h3>
+      <p>Price: ₹425</p>
+       <img src="https://tipsandbeauty.com/wp-content/uploads/2021/10/Central-slit-printed-long-kurta-with-jeans-pattern-200x300.jpg" alt="Western">
+     <label for="size-dress">Choose Size:</label>
+  <select id="size-dress" name="size-dress">
+   option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Western Wear')">Add to Cart</button>
+      <button onclick="addToWishlist('Western Wear')">Add to Wishlist</button>
+      <button onclick="bookNow('Western Wear')">Book Now</button>
+    </div>
+
+
+ <div class="card">
+      <h3>WESTERN WEAR</h3>
+      <p>Price: ₹479</p>
+       <img src="https://1.bp.blogspot.com/-AuZGs2ZIzfg/Xk_fl8VdFKI/AAAAAAAAA2s/5cYs_fwWn7wP_s_fyiacGlzxFSXONRzRwCLcBGAsYHQ/s1600/designer-kurtis-1.jpg" alt="Western">
+     <label for="size-dress">Choose Size:</label>
+  <select id="size-dress" name="size-dress">
+   option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Western Wear')">Add to Cart</button>
+      <button onclick="addToWishlist('Western Wear')">Add to Wishlist</button>
+      <button onclick="bookNow('Western Wear')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>KURTHI SET</h3>
+      <p>Price: ₹799</p>
+       <img src="https://medias.utsavfashion.com/media/catalog/product/cache/1/image/1000x/040ec09b1e35df139433887a97daa66f/d/i/digital-printed-organza-anarkali-suit-in-off-white-v1-knr349.jpg" alt="Kurthi">
+     <label for="size-kurthi">Choose Size:</label>
+  <select id="size-kurthi" name="size-kurthi">
+   option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Western Wear')">Add to Cart</button>
+      <button onclick="addToWishlist('Western Wear')">Add to Wishlist</button>
+      <button onclick="bookNow('Western Wear')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>KURTHI SET</h3>
+      <p>Price: ₹599</p>
+       <img src="https://i.pinimg.com/736x/5a/05/b1/5a05b139f9ec40f7df95fd17f00057a8.jpg" alt="Kurthi">
+     <label for="size-kurthi">Choose Size:</label>
+  <select id="size-kurthi" name="size-kurthi">
+   option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Western Wear')">Add to Cart</button>
+      <button onclick="addToWishlist('Western Wear')">Add to Wishlist</button>
+      <button onclick="bookNow('Western Wear')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>KURTHI SET</h3>
+      <p>Price: ₹499</p>
+       <img src="https://i.etsystatic.com/23602841/r/il/57248d/2777245219/il_1140xN.2777245219_h9c7.jpg" alt="Kurthi">
+     <label for="size-kurthi">Choose Size:</label>
+  <select id="size-kurthi" name="size-kurthi">
+   option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Western Wear')">Add to Cart</button>
+      <button onclick="addToWishlist('Western Wear')">Add to Wishlist</button>
+      <button onclick="bookNow('Western Wear')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>KURTHI SET</h3>
+      <p>Price: ₹699</p>
+       <img src="https://images.herzindagi.info/image/2024/Jan/accesory.jpg" alt="Kurthi">
+     <label for="size-kurthi">Choose Size:</label>
+  <select id="size-kurthi" name="size-kurthi">
+   option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Western Wear')">Add to Cart</button>
+      <button onclick="addToWishlist('Western Wear')">Add to Wishlist</button>
+      <button onclick="bookNow('Western Wear')">Book Now</button>
+    </div>
+
+ <h1>STYLE FOR MENS</h1>
+   <img src="https://img.freepik.com/premium-psd/fashion-sale-banner-template_169869-415.jpg?size=626&ext=jpg" alt="Image" width = "800" height = 650>
+ <div class="card">
+<h3>SHIRT</h3>
+      <p>Price: ₹399</p>
+      <img src="https://tse1.mm.bing.net/th/id/OIP.vcRzdgyNhdA2lLIi6QVb9gHaJD?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="shirt">
+ <label for="size-shirt">Choose Size:</label>
+  <select id="size-shirt" name="size-shirt">
+    option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Shirt')">Add to Cart</button>
+      <button onclick="addToWishlist('Shirt')">Add to Wishlist</button>
+      <button onclick="bookNow('Shirt ')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>SHIRT</h3>
+      <p>Price: ₹459</p>
+      <img src="https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_100,w_1080/v1/assets/images/28553598/2024/6/4/c871917b-8893-4eac-9b01-72e98acf1e4f1717494997499-Park-Avenue-Slim-Fit-Formal-Shirt-7581717494996952-1.jpg" alt="Western">
+ <label for="size-shirt">Choose Size:</label>
+  <select id="size-shirt" name="size-shirt">
+    option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Shirt')">Add to Cart</button>
+      <button onclick="addToWishlist('Shirt')">Add to Wishlist</button>
+      <button onclick="bookNow('Shirt ')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>SHIRT</h3>
+      <p>Price: ₹799</p>
+        <img src="https://cdn-media.powerlook.in/catalog/product/d/p/dp11152121.jpg?aio=w-640" alt="shirt">
+ <label for="size-shirt">Choose Size:</label>
+  <select id="size-shirt" name="size-shirt">
+    option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Shirt')">Add to Cart</button>
+      <button onclick="addToWishlist('Shirt')">Add to Wishlist</button>
+      <button onclick="bookNow('Shirt ')">Book Now</button>
+    </div>
+
+<div class="card">
+      <h3>SHIRT</h3>
+      <p>Price: ₹479</p>
+        <img src="https://freeland.com.bd/product_images/13122023194343_6485.jpg" alt="shirt">
+ <label for="size-shirt">Choose Size:</label>
+  <select id="size-shirt" name="size-shirt">
+    option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Shirt')">Add to Cart</button>
+      <button onclick="addToWishlist('Shirt')">Add to Wishlist</button>
+      <button onclick="bookNow('Shirt ')">Book Now</button>
+    </div>
+
+    <div class="card">
+      <h3>Printed T-Shirts</h3>
+      <p>Price: ₹1299</p>
+      <img src="https://rukminim1.flixcart.com/image/300/300/xif0q/t-shirt/u/u/w/3xl-fs49-purpl-dragon-leotude-original-imaghf7hazz4tmuu.jpeg?q=90" alt="img">
+ <label for="size-tshirt">Choose Size:</label>
+  <select id="size-tshirt" name="size-tshirt">
+    option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Printed T-Shirts')">Add to Cart</button>
+      <button onclick="addToWishlist('Printed T-Shirts')">Add to Wishlist</button>
+      <button onclick="bookNow('Printed T-Shirts')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>Plane T-Shirts</h3>
+      <p>Price: ₹1499</p>
+         <img src="https://img.freepik.com/premium-photo/mockup-clothing-white-tshirt-blank_856660-6450.jpg" alt="tshirt">
+ <label for="size-tshirt">Choose Size:</label>
+  <select id="size-tshirt" name="size-tshirt">
+    option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Printed T-Shirts')">Add to Cart</button>
+      <button onclick="addToWishlist('Printed T-Shirts')">Add to Wishlist</button>
+      <button onclick="bookNow('Printed T-Shirts')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>T-Shirts</h3>
+      <p>Price: ₹999</p>
+         <img src="https://i.pinimg.com/736x/28/2c/3f/282c3f99ac594dff027fd38781a8a71a.jpg" alt="tshirt">
+ <label for="size-tshirt">Choose Size:</label>
+  <select id="size-tshirt" name="size-tshirt">
+    option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Printed T-Shirts')">Add to Cart</button>
+      <button onclick="addToWishlist('Printed T-Shirts')">Add to Wishlist</button>
+      <button onclick="bookNow('Printed T-Shirts')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>Tee-Shirts</h3>
+      <p>Price: ₹1299</p>
+         <img src="https://th.bing.com/th/id/R.6d6deb8ebb1656125f7bd9824eb21fe7?rik=ig7LaNgKCWcFUw&riu=http%3a%2f%2fgarmisland.com%2fcdn%2fshop%2fproducts%2fimage_3c5d3437-b99a-43d6-9dbb-83cc60b244a2.jpg%3fv%3d1680024928&ehk=D%2f9PxY1XDp5nQwSpRLhnBOPH9ItaWnExX9cdaxYaDAc%3d&risl=&pid=ImgRaw&r=0" alt="tshirt">
+ <label for="size-shirt">Choose Size:</label>
+  <select id="size-shirt" name="size-shirt">
+    option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Printed T-Shirts')">Add to Cart</button>
+      <button onclick="addToWishlist('Printed T-Shirts')">Add to Wishlist</button>
+      <button onclick="bookNow('Printed T-Shirts')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>HODDIE</h3>
+      <p>Price: ₹1299</p>
+         <img src="https://i.pinimg.com/736x/a9/ba/52/a9ba52ec660587a7f12faff38454492f.jpg" alt="hoddies">
+ <label for="size-hoddies">Choose Size:</label>
+  <select id="size-hoddies" name="size-hoddies">
+    option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Hoddies')">Add to Cart</button>
+      <button onclick="addToWishlist('Hoddies')">Add to Wishlist</button>
+      <button onclick="bookNow('Hoddies')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3> B&W-Hoddie</h3>
+      <p>Price: ₹1399</p>
+         <img src="https://img.ltwebstatic.com/images3_pi/2022/12/07/16703840995cafa223f360c435295d6293d38f5b91_thumbnail_405x552.jpg" alt="hoddies">
+ <label for="size-hoddies">Choose Size:</label>
+  <select id="size-hoddies" name="size-hoddies">
+    option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Hoddies')">Add to Cart</button>
+      <button onclick="addToWishlist('Hoddies')">Add to Wishlist</button>
+      <button onclick="bookNow('Hoddies')">Book Now</button>
+    </div>
+
+<div class="card">
+      <h3>Puma-Hoddie</h3>
+      <p>Price: ₹1599</p>
+         <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/588419/01/mod01/fnd/IND/fmt/png/Eessentials-Long-Sleeves-Hoody" alt="hoddies">
+ <label for="size-hoddies">Choose Size:</label>
+  <select id="size-hoddies" name="size-hoddies">
+    option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Hoddies')">Add to Cart</button>
+      <button onclick="addToWishlist('Hoddies')">Add to Wishlist</button>
+      <button onclick="bookNow('Hoddies')">Book Now</button>
+    </div>
+
+<div class="card">
+      <h3>Blue-Hoddie</h3>
+      <p>Price: ₹999</p>
+         <img src="https://tse2.mm.bing.net/th/id/OIP.W8bSbdp2w-ZPacquiPogvgHaJ4?r=0&w=1920&h=2560&rs=1&pid=ImgDetMain&o=7&rm=3" alt="hoodies">
+ <label for="size-hoddies">Choose Size:</label>
+  <select id="size-hoddies" name="size-hoddies">
+    option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Hoddies')">Add to Cart</button>
+      <button onclick="addToWishlist('Hoddies')">Add to Wishlist</button>
+      <button onclick="bookNow('Hoddies')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>CARGOE-1</h3>
+      <p>Price: ₹1399</p>
+      <img src="https://i.pinimg.com/originals/4b/b8/40/4bb8408862e9c8be35aba85f8217298e.png" alt="Cargoe">
+ <label for="size-cargoe">Choose Size:</label>
+  <select id="size-cargoe" name="size-cargoe">
+    option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Cargoes')">Add to Cart</button>
+      <button onclick="addToWishlist('Cargoes')">Add to Wishlist</button>
+      <button onclick="bookNow('Cargoes')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>CARGOES-2</h3>
+      <p>Price: ₹1259</p>
+      <img src="https://icdn.tradew.com/file/202302/1575658/jpg/7877074.jpg" alt="Cargoe">
+ <label for="size-cargoe">Choose Size:</label>
+  <select id="size-cargoe" name="size-cargoe">
+    option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Cargoes')">Add to Cart</button>
+      <button onclick="addToWishlist('Cargoes')">Add to Wishlist</button>
+      <button onclick="bookNow('Cargoes')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>CARGOES-3</h3>
+      <p>Price: ₹1259</p>
+      <img src="https://tse4.mm.bing.net/th/id/OIP.dTGaTlRQytU0pPz6knLVBwAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Cargoe">
+ <label for="size-cargoe">Choose Size:</label>
+  <select id="size-cargoe" name="size-cargoe">
+    option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Cargoes')">Add to Cart</button>
+      <button onclick="addToWishlist('Cargoes')">Add to Wishlist</button>
+      <button onclick="bookNow('Cargoes')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>CARGOES-4</h3>
+      <p>Price: ₹1499</p>
+      <img src="https://tse3.mm.bing.net/th/id/OIP.dcqBtZkha8Lisj0dS5ZBTgHaJ2?r=0&w=900&h=1198&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Cargoe">
+ <label for="size-cargoe">Choose Size:</label>
+  <select id="size-cargoe" name="size-cargoe">
+    option value="small">XS</option>
+    <option value="small">S</option>
+    <option value="medium">M</option>
+    <option value="large">L</option>
+    <option value="xl">XL</option>
+   <option value="small">XXL</option>
+  </select>
+      <button onclick="addToCart('Cargoes')">Add to Cart</button>
+      <button onclick="addToWishlist('Cargoes')">Add to Wishlist</button>
+      <button onclick="bookNow('Cargoes')">Book Now</button>
+    </div>
+
+ <h1>FOOTWEAR FOR MENS</h1>
+ <img src="https://i.gyazo.com/c9fd4e52d11067ae52ccb9434c55734e.gif" alt="Image" width = "700" height = 550>
+<div class="card">
+      <h3>B-SHOES</h3>
+      <p>Price: ₹499</p>
+     <img src="https://tse1.mm.bing.net/th/id/OIP.qJI5P8wl9gkNwhEoJYCJKAHaHa?r=0&w=640&h=640&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Shoes">
+ <label for="size-shoes">Choose Size:</label>
+  <select id="size-shoes" name="size-shoes">
+   <option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Shoes')">Add to Cart</button>
+      <button onclick="addToWishlist('Shoes')">Add to Wishlist</button>
+      <button onclick="bookNow('Shoes')">Book Now</button>
+    </div>
+
+<div class="card">
+      <h3>C-SHOES</h3>
+      <p>Price: ₹599</p>
+     <img src="https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_100,w_1080/v1/assets/images/23339578/2023/5/23/2453fb85-3752-43f2-81d9-c34e4b35a8851684817923882knoosMenBlackTexturedLoafers1.jpg" alt="Shoes">
+ <label for="size-shoes">Choose Size:</label>
+  <select id="size-shoes" name="size-shoes">
+<option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Shoes')">Add to Cart</button>
+      <button onclick="addToWishlist('Shoes')">Add to Wishlist</button>
+      <button onclick="bookNow('Shoes')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>SHOES</h3>
+      <p>Price: ₹479</p>
+     <img src="https://i.pinimg.com/originals/fe/1a/72/fe1a72cad25701d280a5edfeed7699d5.jpg" alt="Shoes">
+ <label for="size-shoes">Choose Size:</label>
+  <select id="size-shoes" name="size-shoes">
+   <option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Shoes')">Add to Cart</button>
+      <button onclick="addToWishlist('Shoes')">Add to Wishlist</button>
+      <button onclick="bookNow('Shoes')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>W-SHOES</h3>
+      <p>Price: ₹649</p>
+     <img src="https://img.ltwebstatic.com/images3_pi/2022/06/22/16558881480ed7f4ad444d307f7a844ad056572167_thumbnail_405x552.jpg" alt="Cargoe">
+ <label for="size-silk">Choose Size:</label>
+  <select id="size-silk" name="size-silk">
+  <option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Shoes')">Add to Cart</button>
+      <button onclick="addToWishlist('Shoes')">Add to Wishlist</button>
+      <button onclick="bookNow('Shoes')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>CROCS-</h3>
+      <p>Price: ₹399</p>
+     <img src="https://lzd-img-global.slatic.net/g/p/7b845a92b6dfc22f9ecdd5f5d9ac87c5.jpg_720x720q80.jpg" alt="Crocs">
+ <label for="size-crocs">Choose Size:</label>
+  <select id="size-crocs" name="size-crocs">
+  <option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Shoes')">Add to Cart</button>
+      <button onclick="addToWishlist('Shoes')">Add to Wishlist</button>
+      <button onclick="bookNow('Shoes')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>CROCS-A</h3>
+      <p>Price: ₹400</p>
+     <img src="https://down-ph.img.susercontent.com/file/91934bed797875f4ff3c0e4390f4a48e" alt="Crocs">
+ <label for="size-crocs">Choose Size:</label>
+  <select id="size-crocs" name="size-crocs">
+   <option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Shoes')">Add to Cart</button>
+      <button onclick="addToWishlist('Shoes')">Add to Wishlist</button>
+      <button onclick="bookNow('Shoes')">Book Now</button>
+    </div>
+
+<div class="card">
+      <h3>B-CROCS</h3>
+      <p>Price: ₹374</p>
+     <img src="https://tse1.mm.bing.net/th/id/OIP.NNM9L3KkcVGTHXm85r9sgQHaH2?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Crocs">
+ <label for="size-crocs">Choose Size:</label>
+  <select id="size-crocs" name="size-crocs">
+   <option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Shoes')">Add to Cart</button>
+      <button onclick="addToWishlist('Shoes')">Add to Wishlist</button>
+      <button onclick="bookNow('Shoes')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>W-CROCS</h3>
+      <p>Price: ₹425</p>
+     <img src="https://ae01.alicdn.com/kf/Sfe65441a248e42449e86881c89071ee3q/2024-New-Men-s-Slippers-Summer-Soft-EVA-Beach-Hole-Shoes-Outdoor-Women-s-Slippers-Anti.jpg" alt="Crocs">
+ <label for="size-crocs">Choose Size:</label>
+  <select id="size-crocs" name="size-crocs">
+  <option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Shoes')">Add to Cart</button>
+      <button onclick="addToWishlist('Shoes')">Add to Wishlist</button>
+      <button onclick="bookNow('Shoes')">Book Now</button>
+    </div>
+
+<div class="card">
+      <h3>SANDALS FOR MENS</h3>
+      <p>Price: ₹439</p>
+     <img src="https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_100,w_1080/v1/assets/images/25179898/2023/9/26/5d817e27-e2ad-4de6-8258-7a49a2d7b42f1695737882928SparxWomenWovenLogo-DetailSportsSandals1.jpg" alt="Sandals">
+ <label for="size-sandals">Choose Size:</label>
+  <select id="size-sandals" name="size-sandals">
+  <option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Sandals')">Add to Cart</button>
+      <button onclick="addToWishlist('Sandals')">Add to Wishlist</button>
+      <button onclick="bookNow('Sandals')">Book Now</button>
+    </div>
+
+<div class="card">
+      <h3>SANDALS FOR MENS</h3>
+      <p>Price: ₹459</p>
+     <img src="https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_100,w_1080/v1/image/style/properties/909917/Sparx-Men-Sandals_1_6bc903d6990b819f395e6b5f3f4b82b7.jpg" alt="Sandals">
+ <label for="size-sandals">Choose Size:</label>
+  <select id="size-sandals" name="size-sandals">
+   <option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Sandals')">Add to Cart</button>
+      <button onclick="addToWishlist('Sandals')">Add to Wishlist</button>
+      <button onclick="bookNow('Sandals')">Book Now</button>
+    </div>
+
+<div class="card">
+      <h3>SANDALS FOR MENS</h3>
+      <p>Price: ₹399</p>
+     <img src="https://tse2.mm.bing.net/th/id/OIP.gsQeZ_ip7EEc5jhZZ-fr4gHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3 " alt="Sandals">
+ <label for="size-sandals">Choose Size:</label>
+  <select id="size-sandals" name="size-sandals">
+<option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Sandals')">Add to Cart</button>
+      <button onclick="addToWishlist('Sandals')">Add to Wishlist</button>
+      <button onclick="bookNow('Sandals')">Book Now</button>
+    </div>
+
+<div class="card">
+      <h3>SANDALS FOR MENS</h3>
+      <p>Price: ₹349</p>
+     <img src="https://tse1.mm.bing.net/th/id/OIP.6F2ZVCAdpSRo1GwaQtn7jwHaJ4?r=0&w=1080&h=1440&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Sandals">
+ <label for="size-sandals">Choose Size:</label>
+  <select id="size-sandals" name="size-sandals">
+ <option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Sandals')">Add to Cart</button>
+      <button onclick="addToWishlist('Sandals')">Add to Wishlist</button>
+      <button onclick="bookNow('Sandals')">Book Now</button>
+    </div>
+
+<h1>FOOTWEAR FOR WOMENS</h1>
+ <img src="https://tse4.mm.bing.net/th/id/OIP.167eVWxOxzRvDpzylan31QHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Image" width = "700" height = 550>
+ <div class="card">
+      <h3>SHOES-A</h3>
+      <p>Price: ₹999</p>
+     <img src="https://www.jiomart.com/images/product/500x630/rvpethik4r/denill-pink-casual-shoes-for-women-product-images-rvpethik4r-0-202211041257.jpg" alt="Shoes">
+ <label for="size-shoes">Choose Size:</label>
+  <select id="size-shoes" name="size-shoes">
+ <option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Shoes')">Add to Cart</button>
+      <button onclick="addToWishlist('Shoes')">Add to Wishlist</button>
+      <button onclick="bookNow('Shoes')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>SHOES-B</h3>
+      <p>Price: ₹759</p>
+     <img src="https://i.pinimg.com/736x/d9/9c/33/d99c332844fe3147fdb8e4f2c88c7525.jpg" alt="Shoes">
+ <label for="size-shoes">Choose Size:</label>
+  <select id="size-shoes" name="size-shoes">
+<option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Shoes')">Add to Cart</button>
+      <button onclick="addToWishlist('Shoes')">Add to Wishlist</button>
+      <button onclick="bookNow('Shoes')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>SHOES</h3>
+      <p>Price: ₹573</p>
+     <img src="https://i.etsystatic.com/34365344/r/il/8549ee/6307956780/il_1080xN.6307956780_9j32.jpg" alt="Shoes">
+ <label for="size-shoes">Choose Size:</label>
+  <select id="size-shoes" name="size-shoes">
+  <option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Shoes')">Add to Cart</button>
+      <button onclick="addToWishlist('Shoes')">Add to Wishlist</button>
+      <button onclick="bookNow('Shoes')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>SHOES</h3>
+      <p>Price: ₹780</p>
+     <img src="https://tse4.mm.bing.net/th/id/OIP.NEfGENw7ya84OuFEyykr1wHaHa?r=0&w=640&h=640&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Shoes">
+ <label for="size-shoes">Choose Size:</label>
+  <select id="size-shoes" name="size-shoes">
+<option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Shoes')">Add to Cart</button>
+      <button onclick="addToWishlist('Shoes')">Add to Wishlist</button>
+      <button onclick="bookNow('Shoes')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>FLATS</h3>
+      <p>Price: ₹299</p>
+     <img src="https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_100,w_1080/v1/assets/images/16620120/2021/12/27/f84c5b9f-0efb-4dd7-a76d-1da1b232b7b31640622777913ICONICSWomenBlueOneToeFlatswithBows1.jpg" alt="Flats">
+ <label for="size-flats">Choose Size:</label>
+  <select id="size-flats" name="size-flats">
+  <option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Shoes')">Add to Cart</button>
+      <button onclick="addToWishlist('Shoes')">Add to Wishlist</button>
+      <button onclick="bookNow('Shoes')">Book Now</button>
+    </div>
+
+
+ <div class="card">
+      <h3>FLATS</h3>
+      <p>Price: ₹349</p>
+     <img src="https://images-static.nykaa.com/media/catalog/product/e/0/e06b864DN-401-Purple_1.jpg" alt="Flats">
+ <label for="size-flats">Choose Size:</label>
+  <select id="size-flats" name="size-flats">
+ <option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Shoes')">Add to Cart</button>
+      <button onclick="addToWishlist('Shoes')">Add to Wishlist</button>
+      <button onclick="bookNow('Shoes')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>FLATS</h3>
+      <p>Price: ₹340</p>
+     <img src="https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_100,w_1080/v1/assets/images/19920204/2022/9/11/1e7e8d32-84b7-4f02-b740-55831093b5c31662891775756FlipFlops1.jpg" alt="Flats">
+ <label for="size-flats">Choose Size:</label>
+  <select id="size-flats" name="size-flats">
+ <option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Shoes')">Add to Cart</button>
+      <button onclick="addToWishlist('Shoes')">Add to Wishlist</button>
+      <button onclick="bookNow('Shoes')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>FLATS</h3>
+      <p>Price: ₹500</p>
+     <img src="https://www.lulus.com/images/product/xlarge/7097961_623482.jpg" alt="Flats">
+ <label for="size-flats">Choose Size:</label>
+  <select id="size-flats" name="size-flats">
+   <option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Shoes')">Add to Cart</button>
+      <button onclick="addToWishlist('Shoes')">Add to Wishlist</button>
+      <button onclick="bookNow('Shoes')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>HEELS</h3>
+      <p>Price: ₹599</p>
+     <img src="https://tse1.mm.bing.net/th/id/OIP.-ReE3kOnTI-Zjiyp7InCnQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Heels">
+ <label for="size-heels">Choose Size:</label>
+  <select id="size-heels" name="size-heels">
+  <option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Heels')">Add to Cart</button>
+      <button onclick="addToWishlist('Heels')">Add to Wishlist</button>
+      <button onclick="bookNow('Heels')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>HEELS</h3>
+      <p>Price: ₹459</p>
+     <img src="https://i.pinimg.com/originals/38/34/36/383436ebca1ac824a9542ee29949441a.jpg" alt="Heels">
+ <label for="size-heels">Choose Size:</label>
+  <select id="size-heels" name="size-heels">
+   <option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Heels')">Add to Cart</button>
+      <button onclick="addToWishlist('Heels')">Add to Wishlist</button>
+      <button onclick="bookNow('Heels')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>HEELS</h3>
+      <p>Price: ₹340</p>
+     <img src="https://img.ltwebstatic.com/images3_pi/2021/08/02/1627869044543f006f7a5d9b618b3b55faaa27129d_thumbnail_900x.webp" alt="Heels">
+ <label for="size-heels">Choose Size:</label>
+  <select id="size-heels" name="size-heels">
+<option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Heels')">Add to Cart</button>
+      <button onclick="addToWishlist('Heels')">Add to Wishlist</button>
+      <button onclick="bookNow('Heels')">Book Now</button>
+    </div>
+
+ <div class="card">
+      <h3>HEELS</h3>
+      <p>Price: ₹420</p>
+     <img src="https://img.kwcdn.com/product/fancy/cee8381c-9237-48a0-8bd8-f489675c404e.jpg?imageView2/2/w/800/q/70/format/webp" alt="Heels">
+ <label for="size-heels">Choose Size:</label>
+  <select id="size-heels" name="size-heels">
+   <option value="small">6</option>
+    <option value="small">7</option>
+    <option value="medium">8</option>
+    <option value="large">9</option>
+    <option value="xl">10</option>
+  </select>
+      <button onclick="addToCart('Heels')">Add to Cart</button>
+      <button onclick="addToWishlist('Heels')">Add to Wishlist</button>
+      <button onclick="bookNow('Heels')">Book Now</button>
+    </div>
+
+   <!-- Add more product cards here -->
+  </div>
+
+  <div id="cart">
+    <h2>🛒 Your Cart</h2>
+    <ul id="cart-items"></ul>
+  </div>
+
+  <div id="wishlist">
+    <h2>❤️ Wishlist</h2>
+    <ul id="wishlist-items"></ul>
+  </div>
+
+  <div id="payment-section">
+    <h2>💳 Payment Section</h2>
+    <p>Complete your payment securely.</p>
+    <label for="card">Card Number:</label><br>
+    <input type="text" id="card" placeholder="1234 5678 9012 3456"><br><br>
+    <label for="cvv">CVV:</label><br>
+    <input type="password" id="cvv" placeholder="123"><br><br>
+    <button onclick="payNow()">Pay Now</button>
+    <p id="payment-msg" style="color: green;"></p>
+  </div>
+
+  <script>
+
+    const cartItems = new Set();
+    const wishlistItems = new Set();
+
+    function addToCart(product) {
+      if (!cartItems.has(product)) {
+        cartItems.add(product);
+        const cart = document.getElementById("cart-items");
+        const item = document.createElement("li");
+        item.textContent = product;
+        cart.appendChild(item);
+        alert(product + " added to cart!");
+      } else {
+        alert(product + " is already in the cart!");
+      }
+    }
+
+    function addToWishlist(product) {
+      if (!wishlistItems.has(product)) {
+        wishlistItems.add(product);
+        const wishlist = document.getElementById("wishlist-items");
+        const item = document.createElement("li");
+        item.textContent = product;
+        wishlist.appendChild(item);
+        alert(product + " added to wishlist!");
+      } else {
+        alert(product + " is already in the wishlist!");
+      }
+    }
+
+    function bookNow(product) {
+      alert("You have booked: " + product);
+    }
+
+    function payNow() {
+      const card = document.getElementById("card").value.trim();
+      const cvv = document.getElementById("cvv").value.trim();
+      const cardRegex = /^\d{16}$/;
+      const cvvRegex = /^\d{3}$/;
+
+      if (!cardRegex.test(card)) {
+        alert("Please enter a valid 16-digit card number.");
+        return;
+      }
+      if (!cvvRegex.test(cvv)) {
+        alert("Please enter a valid 3-digit CVV.");
+        return;
+      }
+      document.getElementById("payment-msg").textContent = "Payment Successful!";
+    }
+
+  </script>
+
+<!-- User Settings Section -->
+<div id="settings-section" style="padding: 20px; background: #e7f0f7;">
+  <h2>⚙️ User Settings</h2>
+  <label for="new-username">Update Username:</label><br>
+  <input type="text" id="new-username" placeholder="New username"><br><br>
+  <label for="new-password">Update Password:</label><br>
+  <input type="password" id="new-password" placeholder="New password"><br><br>
+  <button onclick="updateSettings()">Update Settings</button>
+  <p id="update-msg" style="color: blue;"></p>
+</div>
+
+<footer>
+        <div class="footer-container container">
+           
+            <div class="content_2">
+                <h4>SHOPPING</h4>
+                <a href="#sellers">Clothing Store</a>
+                <a href="#sellers">Trending Shoes</a>
+                <a href="#sellers">Accessories</a>
+                <a href="#sellers">Sale</a>
+            </div>
+            <div class="content_3">
+                <h4>SHOPPING</h4>
+                <a href="./contact.html">Contact Us</a>
+                <a href="https://payment-method-sb.netlify.app/" target="_blank">Payment Method</a>
+                <a href="https://delivery-status-sb.netlify.app/" target="_blank">Delivery</a>
+                <a href="https://codepen.io/sandeshbodake/full/Jexxrv" target="_blank">Return and Exchange</a>
+            </div>
+            <div class="content_4">
+                <h4>NEWLETTER</h4>
+                <p>Be the first to know about new<br>arrivals, look books, sales & promos!</p>
+                <div class="f-mail">
+                    <input type="email" placeholder="Your Email">
+                    <i class='bx bx-envelope'></i>
+                </div>
+                <hr>
+            </div>
+        </div>
+        <div class="f-design">
+            <div class="f-design-txt container">
+                <p>Design and Code by code.sanket</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
